@@ -1,3 +1,19 @@
-document.addEventListener("DOMContentLoaded", () => {
-  // your code here
-});
+
+  document.addEventListener("DOMContentLoaded", () => {
+    submitTask()
+  });
+  
+  // Handles an event in a form based on clicking a submit button.
+  let submitTask = () => {
+    let taskList = document.getElementById('tasks');
+    let taskEntry = document.getElementById('create-task-form');
+
+    taskEntry.onsubmit = (e) => {
+      e.preventDefault(); 
+      let newTaskDescription = document.getElementById('new-task-description').value;
+      let myEntry = document.createElement('li');
+      myEntry.appendChild(document.createTextNode(newTaskDescription));
+      taskList.appendChild(myEntry);
+      taskEntry.reset()
+    }
+  }
